@@ -1,0 +1,108 @@
+[
+   {
+    "label": "S/N",
+    "prop": "S/N",
+    "minWidth": "60px",
+    "align": "center",
+    "type": "input",
+    "tabCol":false,
+    "formCol": true
+  }, 
+  {
+    "label": "描述",
+    "prop": "goodsDesc",
+    "minWidth": "280px", 
+    "type": "input",
+    "tabCol":true,
+    "formCol": true
+  },
+  {
+    "label": "型号",
+    "prop": "goodsModel",
+    "minWidth": "180px", 
+    "type": "input",
+    "tabCol":true,
+    "formCol": true
+  },
+  {
+    "label": "尺寸",
+    "prop": "goodsSize",
+    "minWidth": "120px",
+    "align": "center",
+    "type": "input",
+    "tabCol":true,
+    "formCol": true
+  },
+  {
+    "label": "颜色",
+    "prop": "goodsColor",
+    "minWidth": "100px",
+    "align": "center",
+    "type": "input",
+    "tabCol":false,
+    "formCol": false
+  },
+  {
+    "label": "印刷/孔位",
+    "prop": "print",
+    "minWidth": "100px",
+    "align": "center",
+    "type": "input",
+    "tabCol":true,
+    "formCol": true
+  },
+  {
+    "label": "左右肽",
+    "prop": "driverSide",
+    "minWidth": "100px",
+    "align": "center",
+    "type": "select",
+    "tabCol":true,
+    "formCol": true,
+    "options":[
+      { "id": "0", "label": "无 " },
+      { "id": "1", "label": "LHD" },
+      { "id": "2", "label": "RHD" },
+      { "id": "3", "label": "LHD&RHD" }
+    ]
+  },   
+  {
+    "label": "商品状态",
+    "prop": "status",
+    "minWidth": "100px",
+    "align": "center",
+    "type": "select",
+    "tabCol":false,
+    "formCol": true,
+    "options":[
+      {
+        "id":1,
+        "label":"在用"
+      },
+       {
+        "id":2,
+        "label":"停用"
+      } 
+      
+    ]
+  },                           
+  
+  {
+    "label": "创建时间",
+    "prop": "createTime",
+    "minWidth": "160px",
+    "align": "center",
+    "type": "input",
+    "tabCol":false,
+    "formCol": false
+  },
+  {
+    "label": "更新时间",
+    "prop": "updateTime",
+    "minWidth": "160px",
+    "align": "center",
+    "type": "input",
+    "tabCol":false,
+    "formCol": false
+  }
+]

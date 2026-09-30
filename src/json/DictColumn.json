@@ -1,0 +1,74 @@
+[
+    {
+        "label": "字典ID",
+        "prop": "id",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": false,
+        "formCol": false
+    },
+    {
+        "label": "代码",
+        "prop": "code",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "级别",
+        "prop": "level",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "名称",
+        "prop": "name",
+        "minWidth": "150px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "所属上一级别",
+        "prop": "highid",
+        "minWidth": "130px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "是否为构件",
+        "prop": "isComp",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "排序",
+        "prop": "sequence",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "父一级",
+        "prop": "fid",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    }
+]

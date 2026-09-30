@@ -1,0 +1,132 @@
+[
+    {
+        "label": "供应商编号",
+        "prop": "supplierNo",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true,
+         "searchCol":true
+    },
+     {
+        "label": "供应商名称",
+        "prop": "supplierName",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true,
+         "searchCol":true
+    },
+    {
+        "label": "联系人",
+        "prop": "supplierPerson", 
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true, 
+        "formCol": true,
+        "searchCol":true  
+    },
+    {
+        "label": "国家",
+        "prop": "country",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "select",
+        "tabCol": false,
+        "formCol": false,
+        "searchCol":false,
+        "options":[ ]
+    },
+    {
+        "label": "E-Mail",
+        "prop": "email",
+        "minWidth": "120px",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "公司名称",
+        "prop": "companyName",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "手机号",
+        "prop": "mobile",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "联系电话",
+        "prop": "phone",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "传真",
+        "prop": "fax",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "地址",
+        "prop": "address",  
+        "minWidth": "140px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },  
+    {
+        "label": "备注",
+        "prop": "remark",
+        "minWidth": "150px",
+        "align": "left",
+        "type": "textarea",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "录入人",
+        "prop": "createName",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": false,
+        "formCol": false
+    },
+    {
+        "label": "录入时间",
+        "prop": "createTime",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "date",
+        "tabCol": false,
+        "formCol": false
+    },
+    {
+        "label": "操作",
+        "prop": "operate",
+        "minWidth": "260px",
+        "align": "center",
+        "type": "operate",
+        "tabCol":false,
+        "formCol": false
+    } 
+]

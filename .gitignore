@@ -1,0 +1,12 @@
+node_modules/
+*.log
+.env
+.env.local
+output/
+*.zip
+*.rar
+*.exe
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/

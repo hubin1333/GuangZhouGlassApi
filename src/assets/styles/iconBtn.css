@@ -1,0 +1,14 @@
+ 
+.iconBtn {
+    width: 25px;
+    height: 18px;
+    padding: 0;
+} 
+  /* 控制图标icon大小 */
+ .iconBtn deep i {
+      font-size: 20px;
+    }
+  /* //控制字大小 */
+.iconBtn deep {
+      font-size: 20px;
+    }

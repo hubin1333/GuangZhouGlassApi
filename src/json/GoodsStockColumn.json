@@ -1,0 +1,138 @@
+[
+     {
+        "label": "箱号",
+        "prop": "boxNo",
+        "minWidth": "80px",
+        "align": "center",
+        "type": "input",
+        "tabCol":true,
+        "formCol": true
+    },
+    {
+        "label": "货品描述",
+        "prop": "goodsDesc",
+        "minWidth": "250px",
+        "align": "center",
+        "type": "input",
+        "tabCol":true,
+        "formCol": true
+    },
+    {
+        "label": "货品型号",
+        "prop": "goodsModel",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "尺寸",
+        "prop": "goodInfo.goodsSize",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "印刷/孔位",
+        "prop": "goodsHole",
+        "minWidth": "120px",
+        "align": "center",
+        "type": "select",
+        "tabCol": true,
+        "formCol": false
+    },
+    {
+        "label": "颜色",
+        "prop": "goodsColor",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "数量",
+        "prop": "stockNum",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "number",
+        "tabCol": true,
+        "formCol": true
+    }, 
+    {
+        "label": "原单号",
+        "prop": "receiptDetail.moDetail.soDetail.customerOrderNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "生产厂家",
+        "prop": "receiptDetail.moDetail.soDetail.factory",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "客户订单系统单号",
+        "prop": "receiptDetail.moDetail.soDetail.main.orderNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": false,
+        "formCol": true
+    },
+    {
+        "label": "生产单号",
+        "prop": "receiptDetail.moDetail.main.orderNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "仓位",
+        "prop": "receiptDetail.moDetail.main.orderNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "入库系统单号",
+        "prop": "receiptDetail.main.receiptNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": false,
+        "formCol": true
+    },
+    {
+        "label": "入库时间",
+        "prop": "receiptDetail.main.createTime",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "date",
+        "tabCol": true,
+        "formCol": false
+    },
+    {
+        "label": "备注",
+        "prop": "remark",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "textarea",
+        "tabCol": true,
+        "formCol": true
+    }
+    
+]

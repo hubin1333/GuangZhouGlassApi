@@ -1,0 +1,60 @@
+[
+    {
+        "label": "国家编号",
+        "prop": "countryNo",
+        "minWidth": "180px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true,
+         "searchCol":true
+    },
+    {
+        "label": "国家名称",
+        "prop": "countryName",  
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true,
+        "searchCol":true  
+    },
+    {
+        "label": "英文代码",
+        "prop": "countryCode",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": true,
+        "formCol": true,
+        "searchCol":true,
+        "options":[ ]
+    }, 
+    {
+        "label": "备注",
+        "prop": "remark",
+        "minWidth": "150px",
+        "align": "left",
+        "type": "textarea",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "录入人",
+        "prop": "createName",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "input",
+        "tabCol": false,
+        "formCol": false
+    },
+    {
+        "label": "录入时间",
+        "prop": "createTime",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "false",
+        "tabCol": false,
+        "formCol": false
+    } 
+]

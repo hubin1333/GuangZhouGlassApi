@@ -1,0 +1,44 @@
+{
+  "name": "OrderSys-api",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "pkg": {
+    "targets": [
+      "node16-win"
+    ],
+    "outputPath": "output"
+  },
+  "bin": "main.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "archiver": "^7.0.1",
+    "axios": "^1.6.8",
+    "exceljs": "^3.4.0",
+    "fs-extra": "^11.3.2",
+    "js-sha1": "^0.7.0",
+    "koa": "^2.14.2",
+    "koa-body": "^4.0.1",
+    "koa-cors": "^0.0.16",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^12.0.0",
+    "koa-send": "^5.0.1",
+    "koa-static": "^5.0.0",
+    "moment": "^2.30.1",
+    "mysql2": "^3.3.3",
+    "node-cache": "^5.1.2",
+    "pdf-lib": "^1.17.1",
+    "sequelize": "^6.31.0",
+    "silly-datetime": "^0.1.2",
+    "tedious": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemo": "^1.0.0"
+  }
+}
