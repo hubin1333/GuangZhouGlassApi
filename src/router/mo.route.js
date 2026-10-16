@@ -45,28 +45,35 @@ router.get('/', (ctx) => {
 
 router.get('/pagelist', async (ctx) => {
   try {
-    const req = ctx.request.body || {}
-    const { pageNum = 1, pageSize = 10, searchModel = {} } = req
+    const req = ctx.request.query || {}
+    console.log('req:'+JSON.stringify(req));
+    const { pageNum = 1, pageSize = 10 } = req
     const pageIndex = Number(pageNum)
     const limit = Number(pageSize)
 
     const param = { isDelete: 0 }
+    let searchModel = {}
+    if (req.searchModel) {
+        try {
+          searchModel = JSON.parse(req.searchModel);
+        } catch (e) {
+          searchModel = {};
+        }
+      }
 
     if (searchModel.orderNo) {
       param.orderNo = { [Op.like]: `%${searchModel.orderNo}%` }
     }
-    if (searchModel.customerName) {
-      param.customerName = { [Op.like]: `%${searchModel.customerName}%` }
-    }
-    if (searchModel.customerId) {
-      param.customerId = searchModel.customerId
-    }
+    if (searchModel.supplierName) {
+      param.supplierName = searchModel.supplierName
+    } 
     if (searchModel.orderStatus !== undefined && searchModel.orderStatus !== null && searchModel.orderStatus !== '') {
       param.orderStatus = searchModel.orderStatus
     }
     if (searchModel.start && searchModel.end) {
       param.orderTime = { [Op.between]: [searchModel.start, searchModel.end] }
     }
+    console.log('param:'+JSON.stringify(param));
 
     const { count, rows } = await MoMain.findAndCountAll({
       where: param,

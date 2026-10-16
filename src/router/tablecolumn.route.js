@@ -17,17 +17,21 @@ tabColRouter.post('/setCol', async (ctx, next) => {
      try {
         console.log('列表设置!')
         let req = ctx.request.body 
-        let rst=await TableColumn.findOne({
-            where: { 
-                uid: req.uid,tablename:req.tablename
+        let list = Array.isArray(req.content) ? req.content : []
+        // 先删除该用户该表的旧配置
+        await TableColumn.destroy({
+            where: {
+                uid: req.uid, tableName: req.tablename
             }
-        }) 
-        let result
-        if(rst!=null){
-           result= await TableColumn.update({uid:req.uid,content:JSON.stringify(req.content),tablename:req.tablename},{where:{id:rst.id}})
-        }else{
-           result= await TableColumn.create({uid:req.uid,content:JSON.stringify(req.content),tablename:req.tablename})
-        } 
+        })
+        // 每列一行写入
+        let rows = list.map(c => ({
+            uid: req.uid,
+            tableName: req.tablename,
+            colName: c.colName,
+            colWidth: String(c.minWidth ?? '')
+        }))
+        let result = rows.length ? await TableColumn.bulkCreate(rows) : []
         ctx.response.status = 200;
         ctx.body = {
             code: 200,

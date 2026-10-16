@@ -78,6 +78,18 @@ const ReceiptDetail = seq.define('receipt_detail', {
     field: 'receipt_num',
     comment: '入库数量',
   },
+  goodsPrice: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'goods_price',
+    comment: '商品价格',
+  },
+  goodsAmount: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'goods_amount',
+    comment: '商品金额',
+  },
   receiptWeight: {
     type: DataTypes.DECIMAL(20, 2),
     allowNull: true,

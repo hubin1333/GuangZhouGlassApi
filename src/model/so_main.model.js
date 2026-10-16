@@ -52,13 +52,19 @@ const SoMain = seq.define('so_main', {
     type: DataTypes.DECIMAL(20, 2),
     allowNull: true,
     field: 'total_num',
-    comment: '入库总数量（合计）',
-  },
+    comment: '订单总数量（合计）',
+  },  
+  totalAmount: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'total_amount',
+    comment: '订单总金额（合计）',
+  },  
   totalWeight: {
     type: DataTypes.DECIMAL(20, 2),
     allowNull: true,
     field: 'total_weight',
-    comment: '入库总克重（合计）',
+    comment: '订单总克重（合计）',
   }, 
   orderStatus: {
     type: DataTypes.INTEGER,

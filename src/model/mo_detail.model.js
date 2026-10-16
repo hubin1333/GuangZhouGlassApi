@@ -50,6 +50,18 @@ const MoDetail = seq.define('mo_detail', {
     field: 'goods_size',
     comment: '商品尺寸',
   },
+  goodsPrice: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'goods_price',
+    comment: '商品价格',
+  },
+  goodsAmount: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'goods_amount',
+    comment: '商品金额',
+  },
   goodsHole: {
     type: DataTypes.STRING,
     allowNull: true,

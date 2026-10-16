@@ -12,15 +12,23 @@ const TableColumn = seq.define('tablecolumn', {
     type: DataTypes.STRING,
     allowNull: true,
     comment: '用户UID',
-  },
-  content: {
+  }, 
+  colName: {
     type: DataTypes.STRING,
     allowNull: true,
-    comment: ' ',
+    field: 'col_name',
+    comment: '列名',
   },
-  tablename: {
+  colWidth: {
     type: DataTypes.STRING,
     allowNull: true,
+    field: 'col_width',
+    comment: '列宽',
+  },
+  tableName: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    field: 'table_name',
     comment: '表名',
   },
     
@@ -31,6 +39,6 @@ const TableColumn = seq.define('tablecolumn', {
 
 // 强制同步数据库(创建数据表)
 TableColumn.sync({
-  //alter: true
+  alter: true
 }) 
 module.exports = TableColumn

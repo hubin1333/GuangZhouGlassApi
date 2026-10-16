@@ -72,6 +72,12 @@ const ReceiptMain = seq.define('receipt_main', {
     field: 'total_num',
     comment: '入库总数量（合计）',
   },
+  totalAmount: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'total_amount',
+    comment: '入库总金额（合计）',
+  },  
   totalWeight: {
     type: DataTypes.DECIMAL(20, 2),
     allowNull: true,

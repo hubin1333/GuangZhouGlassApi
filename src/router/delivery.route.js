@@ -129,7 +129,7 @@ router.get('/query/:id', async (ctx) => {
     }
   }
 })
-
+// 
 async function revertDeliveryFromStock(deliveryId, transaction) {
   console.log('revertDeliveryFromStock', deliveryId)
 
@@ -207,7 +207,7 @@ async function revertDeliveryFromStock(deliveryId, transaction) {
     await row.increment('stockNum', { by: total, transaction })
   }
 }
-
+//  
 async function applyDeliveryToStock(deliveryId, transaction) {
   console.log('applyDeliveryToStock', deliveryId)
 
@@ -216,12 +216,12 @@ async function applyDeliveryToStock(deliveryId, transaction) {
     transaction,
     raw: true,
   })
-  console.log('applyDeliveryToStock:', JSON.stringify(details))
+  console.log('applyDeliveryToStock---details:', JSON.stringify(details))
   if (!details.length) return
 
   const now = moment().format('YYYY-MM-DD HH:mm:ss')
   const balanceUpdates = {}
-  console.log('applyDeliveryToStock---details:', JSON.stringify(balanceUpdates))
+  console.log('applyDeliveryToStock---balanceUpdates:', JSON.stringify(balanceUpdates))
   for (const d of details) {
     const qty = Number(d.deliveryNum || 0)
     const goodsModel = d.goodsModel || null
@@ -232,7 +232,7 @@ async function applyDeliveryToStock(deliveryId, transaction) {
       where: {
         goodsModel,
         goodsColor,
-        soLineId,
+        //soLineId,
         status: 'active',
       },
       order: [['id', 'DESC']],
@@ -240,10 +240,10 @@ async function applyDeliveryToStock(deliveryId, transaction) {
       raw: true,
     })
 
-    if (!prevLine) {
-      console.warn('applyDeliveryToStock: 未找到对应的库存入库记录', { goodsModel, goodsColor, soLineId })
-      continue
-    }
+    // if (!prevLine) {
+    //   console.warn('applyDeliveryToStock: 未找到对应的库存入库记录', { goodsModel, goodsColor, soLineId })
+    //   continue
+    // }
 
     await Stock.update(
       { status: 'history' },
@@ -284,7 +284,8 @@ async function applyDeliveryToStock(deliveryId, transaction) {
     await row.update({ stockNum: newNum }, { transaction })
   }
 }
-
+// 生成出库单编号
+// 格式：CKYYYYMMDD001 
 async function generateOutboundNo(prefix = 'CK') {
   const dateStr = moment().format('YYMMDD')
   const fullPrefix = `${prefix}${dateStr}`
@@ -306,7 +307,6 @@ async function generateOutboundNo(prefix = 'CK') {
   return `${fullPrefix}${String(nextSeq).padStart(3, '0')}`
 }
  
-
 router.post('/processOutbound', async (ctx) => {
   let transaction = null
   try {

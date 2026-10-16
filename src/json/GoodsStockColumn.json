@@ -1,7 +1,7 @@
 [
      {
         "label": "箱号",
-        "prop": "boxNo",
+        "prop": "receiptDetail.boxNo",
         "minWidth": "80px",
         "align": "center",
         "type": "input",
@@ -10,7 +10,7 @@
     },
     {
         "label": "货品描述",
-        "prop": "goodsDesc",
+        "prop": "goodInfo.goodsDesc",
         "minWidth": "250px",
         "align": "center",
         "type": "input",
@@ -63,6 +63,24 @@
         "formCol": true
     }, 
     {
+        "label": "价格",
+        "prop": "receiptDetail.moDetail.soDetail.goodsPrice",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "number",
+        "tabCol": true,
+        "formCol": true
+    },
+    {
+        "label": "金额",
+        "prop": "amount",
+        "minWidth": "100px",
+        "align": "center",
+        "type": "number",
+        "tabCol": true,
+        "formCol": true
+    },  
+    {
         "label": "原单号",
         "prop": "receiptDetail.moDetail.soDetail.customerOrderNo",
         "minWidth": "180px",
@@ -73,7 +91,7 @@
     },
     {
         "label": "生产厂家",
-        "prop": "receiptDetail.moDetail.soDetail.factory",
+        "prop": "receiptDetail.main.supplierName",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -100,7 +118,7 @@
     },
     {
         "label": "仓位",
-        "prop": "receiptDetail.moDetail.main.orderNo",
+        "prop": "receiptDetail.main.warehouseName",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -119,6 +137,15 @@
     {
         "label": "入库时间",
         "prop": "receiptDetail.main.createTime",
+        "minWidth": "160px",
+        "align": "center",
+        "type": "date",
+        "tabCol": true,
+        "formCol": false
+    },
+    {
+        "label": "最近出入库时间",
+        "prop": "lastInTime",
         "minWidth": "160px",
         "align": "center",
         "type": "date",

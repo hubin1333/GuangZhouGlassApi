@@ -13,6 +13,7 @@
     "prop": "goodsDesc",
     "minWidth": "280px", 
     "type": "input",
+    "align": "left",
     "tabCol":true,
     "formCol": true
   },
@@ -21,6 +22,7 @@
     "prop": "goodsModel",
     "minWidth": "180px", 
     "type": "input",
+    "align": "left",
     "tabCol":true,
     "formCol": true
   },

@@ -25,7 +25,7 @@ const router = new Router({ prefix })
 router.get('/', (ctx) => {
   ctx.body = 'hello purOrder!'
 })
-
+//查询订单列表
 router.get('/pagelist', async (ctx) => {
   try {
     const req = ctx.request.body || {}
@@ -81,7 +81,7 @@ router.get('/pagelist', async (ctx) => {
     }
   }
 })
-
+//查询订单详情
 router.get('/query/:id', async (ctx) => {
   try {
     const id = ctx.params.id
@@ -153,9 +153,7 @@ async function getMoCount(mainId) {
   })
   return result
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-
-
-
+ 
 async function generateOrderNo(prefix = 'CO') {
   const dateStr = moment().format('YYMMDD')
   const fullPrefix = `${prefix}${dateStr}`
@@ -176,7 +174,7 @@ async function generateOrderNo(prefix = 'CO') {
   }
   return `${fullPrefix}${String(nextSeq).padStart(3, '0')}`
 }
-
+//生成订单号 
 router.post('/generateOrderNo', async (ctx) => {
   try {
     const req = ctx.request.body || {}
@@ -196,7 +194,7 @@ router.post('/generateOrderNo', async (ctx) => {
     }
   }
 })
-
+//新增订单
 router.post('/processOrder', async (ctx) => {
   let transaction = null
   try {
@@ -243,7 +241,7 @@ router.post('/processOrder', async (ctx) => {
     }
   }
 })
-
+//修改订单
 router.put('/editWithDetails', async (ctx) => {
   let transaction = null
   try {
@@ -295,7 +293,7 @@ router.put('/editWithDetails', async (ctx) => {
     }
   }
 })
-
+//审批订单
 router.post('/approve/:id', async (ctx) => {
   try {
     const id = ctx.params.id
@@ -321,7 +319,7 @@ router.post('/approve/:id', async (ctx) => {
     }
   }
 })
-
+//反审批订单
 router.post('/reverseApprove/:id', async (ctx) => {
   try {
     const id = ctx.params.id
@@ -347,7 +345,7 @@ router.post('/reverseApprove/:id', async (ctx) => {
     }
   }
 })
-
+//删除订单
 router.delete('/delete/:id', async (ctx) => {
   let transaction = null
   try {
@@ -385,7 +383,7 @@ router.delete('/delete/:id', async (ctx) => {
     }
   }
 })
-
+//批量删除订单
 router.post('/delmany', async (ctx) => {
   let transaction = null
   try {

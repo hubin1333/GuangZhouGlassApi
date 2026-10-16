@@ -81,7 +81,7 @@ router.post('/pagelist', async (ctx) => {
           as: 'receiptDetail',
           required: false,
           where: { isDelete: 0 },
-          attributes: ['id', 'mainId', 'moLineId', 'goodsModel', 'goodsDesc', 'goodsSize', 'goodsColor', 'receiptNum', 'receiptWeight', 'orderNo', 'brand', 'remark'],
+          attributes: ['id', 'mainId', 'moLineId', 'goodsModel', 'goodsDesc', 'goodsSize', 'goodsColor', 'receiptNum', 'receiptWeight', 'orderNo','boxNo', 'brand', 'remark'],
           include: [
             {
               model: ReceiptMain,
@@ -107,7 +107,7 @@ router.post('/pagelist', async (ctx) => {
                   as: 'soDetail',
                   required: false,
                   where: { isDelete: 0 },
-                  attributes: ['id', 'mainId', 'goodsModel', 'goodsDesc', 'orderNum', 'customerOrderNo'],
+                  attributes: ['id', 'mainId', 'goodsModel', 'goodsDesc', 'goodsPrice','orderNum', 'customerOrderNo'],
                   include: [
                     {
                       model: SoMain,
@@ -132,10 +132,19 @@ router.post('/pagelist', async (ctx) => {
       return true
     })
 
+    // 给每一行补充金额 amount = 数量(stockNum) × 价格(goodsPrice)
+    const rowsWithAmount = dedupedRows.map((r) => {
+      const obj = r.toJSON()
+      const price = obj.receiptDetail?.moDetail?.soDetail?.goodsPrice
+      const num = obj.stockNum
+      obj.amount = price && num ? +(Number(price) * Number(num)).toFixed(2) : 0
+      return obj
+    })
+
     ctx.body = {
       code: 200,
       msg: '查找成功',
-      data: { rows: dedupedRows, count },
+      data: { rows: rowsWithAmount, count },
     }
   } catch (err) {
     console.error('pagelist err:', err)
@@ -147,50 +156,51 @@ router.post('/pagelist', async (ctx) => {
   }
 })
 
-router.get('/query/:id', async (ctx) => {
+router.post('/query', async (ctx) => {
   try {
-    const id = ctx.params.id
-    if (!id) {
+    const req = ctx.request.body || {}
+    const { receiptLineId, goodsModel } = req
+    if (!receiptLineId || !goodsModel) {
       ctx.body = { code: 201, msg: 'id 不能为空', data: null }
       return
     }
 
-    const main = await ReceiptMain.findOne({
-      where: { id, isDelete: 0 },
-      include: [
-        {
-          model: ReceiptDetail,
-          as: 'details',
-          required: false,
-          where: { isDelete: 0 },
-          include: [
-            {
-              model: MoDetail,
-              as: 'moDetail',
-              required: false,
-              include: [
-                {
-                  model: MoMain,
-                  as: 'main',
-                  required: false,
-                },
-                {
-                  model: SoDetail,
-                  as: 'soDetail',
-                  required: false,
-                  include: [
-                    {
-                      model: SoMain,
-                      as: 'main',
-                      required: false,
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
+    const main = await InventoryLine.findAll({
+      where: { receiptLineId, goodsModel },
+      // include: [
+      //   {
+      //     model: ReceiptDetail,
+      //     as: 'details',
+      //     required: false,
+      //     where: { isDelete: 0 },
+      //     include: [
+      //       {
+      //         model: MoDetail,
+      //         as: 'moDetail',
+      //         required: false,
+      //         include: [
+      //           {
+      //             model: MoMain,
+      //             as: 'main',
+      //             required: false,
+      //           },
+      //           {
+      //             model: SoDetail,
+      //             as: 'soDetail',
+      //             required: false,
+      //             include: [
+      //               {
+      //                 model: SoMain,
+      //                 as: 'main',
+      //                 required: false,
+      //               },
+      //             ],
+      //           },
+      //         ],
+      //       },
+      //     ],
+      //   },
+      // ],
     })
     if (!main) {
       ctx.body = { code: 201, msg: '记录不存在', data: null }
