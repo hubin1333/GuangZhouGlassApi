@@ -113,7 +113,7 @@ router.post('/pagelist', async (ctx) => {
                       model: SoMain,
                       as: 'main',
                       required: false,
-                      attributes: ['id', 'orderNo', 'customerName', 'orderStatus'],
+                      attributes: ['id', 'orderNo', 'customerName', 'orderStatus','srcNo'],
                     },
                   ],
                 },
@@ -132,19 +132,52 @@ router.post('/pagelist', async (ctx) => {
       return true
     })
 
-    // 给每一行补充金额 amount = 数量(stockNum) × 价格(goodsPrice)
-    const rowsWithAmount = dedupedRows.map((r) => {
+    // 重塑行结构：嵌套结果拍平为 { good, receiptDetail, receiptMain, soDetail, soMain, moDetail, moMain }
+    // 库存行自身字段（stockNum/changeQty/sourceType/status 等）保留在根上，并补充 amount
+    const rowsReshaped = dedupedRows.map((r) => {
       const obj = r.toJSON()
-      const price = obj.receiptDetail?.moDetail?.soDetail?.goodsPrice
-      const num = obj.stockNum
-      obj.amount = price && num ? +(Number(price) * Number(num)).toFixed(2) : 0
-      return obj
+      const rd = obj.receiptDetail || null
+      const md = rd && rd.moDetail ? rd.moDetail : null
+      const sd = md && md.soDetail ? md.soDetail : null
+      // 先取各层 main 引用，再剥离嵌套
+      const receiptMain = rd && rd.main ? rd.main : null
+      const moMain = md && md.main ? md.main : null
+      const soMain = sd && sd.main ? sd.main : null
+
+      const row = { ...obj }
+      delete row.goodInfo
+      delete row.receiptDetail
+      if (rd) {
+        delete rd.main
+        delete rd.moDetail
+      }
+      if (md) {
+        delete md.main
+        delete md.soDetail
+      }
+      if (sd) {
+        delete sd.main
+      }
+
+      row.goodInfo = obj.goodInfo || null
+      row.receiptDetail = rd
+      row.receiptMain = receiptMain
+      row.moDetail = md
+      row.moMain = moMain
+      row.soDetail = sd
+      row.soMain = soMain
+
+      // 金额 = 数量(stockNum) × 价格(soDetail.goodsPrice)
+      const price = row.soDetail && row.soDetail.goodsPrice
+      const num = row.stockNum
+      row.amount = price && num ? +(Number(price) * Number(num)).toFixed(2) : 0
+      return row
     })
 
     ctx.body = {
       code: 200,
       msg: '查找成功',
-      data: { rows: rowsWithAmount, count },
+      data: { rows: rowsReshaped, count },
     }
   } catch (err) {
     console.error('pagelist err:', err)

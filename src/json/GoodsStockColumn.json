@@ -10,7 +10,7 @@
     },
     {
         "label": "货品描述",
-        "prop": "goodInfo.goodsDesc",
+        "prop": "good.goodsDesc",
         "minWidth": "250px",
         "align": "center",
         "type": "input",
@@ -28,7 +28,7 @@
     },
     {
         "label": "尺寸",
-        "prop": "goodInfo.goodsSize",
+        "prop": "good.goodsSize",
         "minWidth": "160px",
         "align": "center",
         "type": "input",
@@ -64,7 +64,7 @@
     }, 
     {
         "label": "价格",
-        "prop": "receiptDetail.moDetail.soDetail.goodsPrice",
+        "prop": "soDetail.goodsPrice",
         "minWidth": "100px",
         "align": "center",
         "type": "number",
@@ -82,7 +82,7 @@
     },  
     {
         "label": "原单号",
-        "prop": "receiptDetail.moDetail.soDetail.customerOrderNo",
+        "prop": "soDetail.customerOrderNo",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -91,7 +91,7 @@
     },
     {
         "label": "生产厂家",
-        "prop": "receiptDetail.main.supplierName",
+        "prop": "receiptMain.supplierName",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -100,7 +100,7 @@
     },
     {
         "label": "客户订单系统单号",
-        "prop": "receiptDetail.moDetail.soDetail.main.orderNo",
+        "prop": "soMain.orderNo",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -109,7 +109,7 @@
     },
     {
         "label": "生产单号",
-        "prop": "receiptDetail.moDetail.main.orderNo",
+        "prop": "moMain.orderNo",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -118,7 +118,7 @@
     },
     {
         "label": "仓位",
-        "prop": "receiptDetail.main.warehouseName",
+        "prop": "receiptMain.warehouseName",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -127,7 +127,7 @@
     },
     {
         "label": "入库系统单号",
-        "prop": "receiptDetail.main.receiptNo",
+        "prop": "receiptMain.receiptNo",
         "minWidth": "180px",
         "align": "center",
         "type": "input",
@@ -136,7 +136,7 @@
     },
     {
         "label": "入库时间",
-        "prop": "receiptDetail.main.createTime",
+        "prop": "receiptMain.createTime",
         "minWidth": "160px",
         "align": "center",
         "type": "date",

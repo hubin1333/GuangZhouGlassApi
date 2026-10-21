@@ -19,6 +19,7 @@ const MoMain = seq.define('mo_main', {
     field: 'order_no',
     comment: '订单单号',
   },
+  
   supplierId: {
     type: DataTypes.BIGINT,
     allowNull: true,

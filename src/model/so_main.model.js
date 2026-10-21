@@ -66,6 +66,12 @@ const SoMain = seq.define('so_main', {
     field: 'total_weight',
     comment: '订单总克重（合计）',
   }, 
+  srcNo: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    field: 'src_no',
+    comment: '原始单号',
+  },
   orderStatus: {
     type: DataTypes.INTEGER,
     allowNull: true,

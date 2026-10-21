@@ -63,6 +63,12 @@ const DeliveryMain = seq.define('delivery_main', {
     field: 'total_weight',
     comment: '出库总克重（合计）',
   },
+  totalAmount: {
+    type: DataTypes.DECIMAL(20, 2),
+    allowNull: true,
+    field: 'total_amount',
+    comment: '出库总金额（合计）',
+  },
   deliveryStatus: {
     type: DataTypes.INTEGER,
     allowNull: true,
